@@ -52,5 +52,14 @@ angular.module('starter.controllers', [])
   ];
 })
 
-.controller('PlaylistCtrl', function($scope, $stateParams) {
+.controller('ContactslistCtrl', function($scope) {
+  $scope.contacts = [
+    { name: 'Abraham Lincoln', status: "I'm busy", id: 1 },
+    { name: 'Ronald Reagan', status: "Away", id: 2 },
+    { name: 'John F. Kennedy', status: "At the cinema", id: 3 },
+    { name: 'Bill Clinton', status: "Available", id: 4 }
+  ];
+})
+
+.controller('ContactCtrl', function($scope, $stateParams) {
 });
