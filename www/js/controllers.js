@@ -51,4 +51,34 @@ angular.module('starter.controllers', [])
 })
 
 .controller('ContactCtrl', function($scope, $stateParams) {
+})
+
+.controller('CameraCtrl', function($scope) {
+  $scope.upload = {};
+
+  function getPicture(sourceType) {
+    navigator.camera.getPicture(
+      function(imageData) {
+       $scope.upload.picture = imageData;
+      },
+      function() {
+        $scope.upload.picture = undefined;
+      },
+      {
+        quality: 80,
+        encodingType: Camera.EncodingType.JPEG,
+        destinationType: Camera.DestinationType.Data_URL,
+        sourceType: sourceType,
+        saveToPhotoAlbum: false
+      }
+    );
+  }
+
+  $scope.takePicture = function() {
+   getPicture(Camera.PictureSourceType.CAMERA);
+  };
+
+  $scope.selectPicture = function() {
+    getPicture(Camera.PictureSourceType.PHOTOLIBRARY);
+  };
 });

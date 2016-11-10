@@ -22,6 +22,10 @@ angular.module('starter', ['ionic', 'starter.controllers'])
   });
 })
 
+.config(function($ionicConfigProvider) {
+  $ionicConfigProvider.tabs.position('bottom');
+})
+
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 
@@ -49,15 +53,15 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         }
       }
     })
-    .state('app.contacts', {
-      url: '/contacts',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/contactslist.html',
-          controller: 'ContactslistCtrl'
-        }
-      }
-    })
+//     .state('app.contacts', {
+//       url: '/contacts',
+//       views: {
+//         'menuContent': {
+//           templateUrl: 'templates/contactslist.html',
+//           controller: 'ContactslistCtrl'
+//         }
+//       }
+//     })
 
   .state('app.single', {
     url: '/contacts/:contactId',
@@ -67,7 +71,38 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         controller: 'ContactCtrl'
       }
     }
+  })
+
+  .state('app.tabs', {
+    url: '/tabs',
+    abstract: true,
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/tabs.html'
+      }
+    }
+  })
+
+  .state('app.tabs.contactslist', {
+    url: '/contactslist',
+    views: {
+      'tab-contactslist': {
+        templateUrl: 'templates/contactslist.html',
+        controller: 'ContactslistCtrl'
+      }
+    }
+  })
+
+  .state('app.tabs.camera', {
+    url: '/camera',
+    views: {
+      'tab-camera': {
+        templateUrl: 'templates/camera.html',
+        controller: 'CameraCtrl'
+      }
+    }
   });
+
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/contacts');
+  $urlRouterProvider.otherwise('/app/tabs/contactslist');
 });
