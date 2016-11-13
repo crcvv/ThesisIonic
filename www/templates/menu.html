@@ -17,20 +17,79 @@
       <h1 class="title">Left</h1>
     </ion-header-bar>
     <ion-content>
-      <ion-list>
-        <ion-item menu-close ng-click="login()">
-          Login
-        </ion-item>
-        <ion-item menu-close href="#/app/search">
-          Search
-        </ion-item>
-        <ion-item menu-close href="#/app/browse">
-          Browse
-        </ion-item>
-        <ion-item menu-close href="#/app/tabs/contactslist">
-          Contacts
-        </ion-item>
+      <div>
+        <img src="img/ionic.png">
+        <div ng-click="toggleAccountList()" class="item item-icon-right">
+          User Name
+          <span class="item-note">
+            email@emai.com
+          </span>
+          <i class="icon ion-android-arrow-dropdown"></i>
+        </div>
+      </div>
+
+      <ion-list ng-if="!accountList">
+        <a menu-close class="item item-icon-left" href="#">
+          <i class="icon ion-email"></i>
+          Check mail
+        </a>
+
+        <a menu-close class="item item-icon-left item-icon-right" href="#">
+          <i class="icon ion-chatbubble-working"></i>
+          Call Ma
+          <i class="icon ion-ios-telephone-outline"></i>
+        </a>
+
+        <a menu-close class="item item-icon-left" href="#/app/tabs/contactslist">
+          <i class="icon ion-person-stalker"></i>
+          Friends
+          <span class="badge badge-assertive">0</span>
+        </a>
+
+        <div menu-close class="item item-divider">
+          Activities
+        </div>
+
+        <a menu-close class="item item-icon-left" href="#">
+          <i class="icon ion-beaker"></i>
+          Breaking Bad
+          <span class="item-note">
+            Blue, yellow
+          </span>
+        </a>
+
+        <a menu-close class="item item-icon-left" href="#">
+          <i class="icon ion-music-note"></i>
+          Music
+          <span class="item-note">
+            Lalala
+          </span>
+        </a>
       </ion-list>
+
+      <ion-list ng-if="accountList">
+        <a menu-close class="item item-icon-left" href="#">
+          <i class="icon ion-plus"></i>
+          Add account
+        </a>
+
+        <a menu-close class="item item-icon-left" href="#">
+          <i class="icon ion-person-stalker"></i>
+          Manage accounts
+        </a>
+
+        <a menu-close class="item item-icon-left" href="#">
+          <i class="icon ion-gear-b"></i>
+          Settings
+        </a>
+      </ion-list>
+
+      <ion-item menu-close ng-click="login()">
+        <span class="item-icon-left">
+          <i class="icon ion-log-in"></i>
+          Login
+        </span>
+      </ion-item>
     </ion-content>
   </ion-side-menu>
 </ion-side-menus>

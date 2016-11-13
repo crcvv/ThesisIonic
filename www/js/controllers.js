@@ -39,6 +39,12 @@ angular.module('starter.controllers', [])
       $scope.closeLogin();
     }, 1000);
   };
+
+  $scope.accountList = false;
+
+  $scope.toggleAccountList = function() {
+    $scope.accountList = !$scope.accountList;
+  }
 })
 
 .controller('ContactslistCtrl', function($scope) {
@@ -51,6 +57,9 @@ angular.module('starter.controllers', [])
 })
 
 .controller('ContactCtrl', function($scope, $stateParams) {
+  $scope.contact = {
+    name: 'Abraham Lincoln', id: 1
+  };
 })
 
 .controller('CameraCtrl', function($scope) {
@@ -59,15 +68,17 @@ angular.module('starter.controllers', [])
   function getPicture(sourceType) {
     navigator.camera.getPicture(
       function(imageData) {
-       $scope.upload.picture = imageData;
+        $scope.upload.picture = imageData;
+        $scope.$apply();
       },
       function() {
         $scope.upload.picture = undefined;
+        $scope.$apply();
       },
       {
         quality: 80,
         encodingType: Camera.EncodingType.JPEG,
-        destinationType: Camera.DestinationType.Data_URL,
+        destinationType: Camera.DestinationType.DATA_URL,
         sourceType: sourceType,
         saveToPhotoAlbum: false
       }

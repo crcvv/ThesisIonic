@@ -1,8 +1,8 @@
 <ion-view view-title="Camera">
   <ion-content>
 
-<!--   <img id="camera-preview" ng-if="upload.picture" src="data:image/jpeg;base64,{{ upload.picture }}" style ="margin-top: 43px;"> -->
-  <img id="camera-preview" src="http://i.ytimg.com/vi/T4bQA3PXov4/maxresdefault.jpg" style ="margin-top: 43px;">
+  <img id="camera-preview" ng-if="upload.picture" src="data:image/jpeg;base64,{{ upload.picture }}" style ="margin-top: 43px; width: 100%;">
+<!--   <img id="camera-preview" src="http://i.ytimg.com/vi/T4bQA3PXov4/maxresdefault.jpg" style ="margin-top: 43px;"> -->
   <div class="row">
     <div class="col">
       <button ng-click="takePicture()" class="button button-block button-positive icon-left ion-android-camera">
@@ -15,20 +15,5 @@
       </button>
     </div>
   </div>
-
-<!--    <form ng-submit="doUpload()">
-      <label class="item item-input">
-        <i class="icon ion-compose placeholder-icon"></i>
-        <textarea placeholder="Write a caption" ng-model="upload.description"></textarea>
-      </label>
-
-      <label class="item item-input">
-        <i class="icon ion-location placeholder-icon"></i>
-        <input type="text" ng-model="upload.location" placeholder="Add Location">
-      </label>
-
-      <button class="button button-block button-positive"> Upload </button>
-    </form>-->
-
   </ion-content>
 </ion-view>
