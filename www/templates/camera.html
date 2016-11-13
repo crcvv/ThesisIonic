@@ -1,19 +1,18 @@
 <ion-view view-title="Camera">
   <ion-content>
-
-  <img id="camera-preview" ng-if="upload.picture" src="data:image/jpeg;base64,{{ upload.picture }}" style ="margin-top: 43px; width: 100%;">
-<!--   <img id="camera-preview" src="http://i.ytimg.com/vi/T4bQA3PXov4/maxresdefault.jpg" style ="margin-top: 43px;"> -->
-  <div class="row">
-    <div class="col">
-      <button ng-click="takePicture()" class="button button-block button-positive icon-left ion-android-camera">
-        Take picture
-      </button>
+    <img id="camera-preview" ng-if="upload.picture" src="data:image/jpeg;base64,{{ upload.picture }}" style ="margin-top: 43px; width: 100%;">
+  <!--   <img id="camera-preview" src="http://i.ytimg.com/vi/T4bQA3PXov4/maxresdefault.jpg" style ="margin-top: 43px;"> -->
+    <div class="row">
+      <div class="col">
+        <button ng-click="takePicture()" class="button button-block button-royal icon-left ion-android-camera">
+          Take picture
+        </button>
+      </div>
+      <div class="col">
+        <button ng-click="selectPicture()" class="button button-block button-royal icon-left ion-images">
+          Select picture
+        </button>
+      </div>
     </div>
-    <div class="col">
-      <button ng-click="selectPicture()" class="button button-block button-positive icon-left ion-images">
-        Select picture
-      </button>
-    </div>
-  </div>
   </ion-content>
 </ion-view>

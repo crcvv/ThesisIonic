@@ -36,33 +36,6 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     controller: 'AppCtrl'
   })
 
-  .state('app.search', {
-    url: '/search',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/search.html'
-      }
-    }
-  })
-
-  .state('app.browse', {
-      url: '/browse',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/browse.html'
-        }
-      }
-    })
-//     .state('app.contacts', {
-//       url: '/contacts',
-//       views: {
-//         'menuContent': {
-//           templateUrl: 'templates/contactslist.html',
-//           controller: 'ContactslistCtrl'
-//         }
-//       }
-//     })
-
   .state('app.single', {
     url: '/contacts/:contactId',
     views: {
@@ -99,6 +72,15 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       'tab-camera': {
         templateUrl: 'templates/camera.html',
         controller: 'CameraCtrl'
+      }
+    }
+  })
+
+  .state('app.tabs.about', {
+    url: '/about',
+    views: {
+      'tab-about': {
+        templateUrl: 'templates/about.html'
       }
     }
   });
