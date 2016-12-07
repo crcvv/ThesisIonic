@@ -49,10 +49,10 @@ angular.module('starter.controllers', [])
 
 .controller('ContactslistCtrl', function($scope) {
   $scope.contacts = [
-    { name: 'Abraham Lincoln', status: "I'm busy", id: 1 },
-    { name: 'Ronald Reagan', status: "Away", id: 2 },
-    { name: 'John F. Kennedy', status: "At the cinema", id: 3 },
-    { name: 'Bill Clinton', status: "Available", id: 4 }
+    { name: 'Abraham Lincoln', status: "I'm busy", id: 1, img: "venkman.jpg" },
+    { name: 'Ronald Reagan', status: "Away", id: 2, img: "spengler.jpg" },
+    { name: 'John F. Kennedy', status: "At the cinema", id: 3, img: "stantz.jpg" },
+    { name: 'Bill Clinton', status: "Available", id: 4, img: "winston.jpg" }
   ];
 })
 
@@ -92,4 +92,13 @@ angular.module('starter.controllers', [])
   $scope.selectPicture = function() {
     getPicture(Camera.PictureSourceType.PHOTOLIBRARY);
   };
+})
+
+.controller('MailCtrl', function($scope) {
+  $scope.emails = [
+    { name: 'Totoro', preview: "Movie night tonight?", img: "totoro.png" },
+    { name: 'Bill Doe', preview: "Book you recommended", img: "license-to-ill.jpg" },
+    { name: 'Ghostbusters Slimer', preview: "Who ya gonna call?", img: "slimer.jpg" },
+    { name: 'Totoro', preview: "Movie night tonight?", img: "totoro.png" }
+  ];
 });

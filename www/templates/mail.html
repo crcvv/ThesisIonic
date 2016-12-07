@@ -1,0 +1,17 @@
+<ion-view view-title="Mail">
+  <ion-content>
+    <ion-list>
+      <ion-item ng-repeat="mail in emails" class="item item-thumbnail-left">
+        <img src="img/{{mail.img}}">
+        <h2>{{mail.name}}</h2>
+        <p>{{mail.preview}}</p>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+  <div style="position: absolute; bottom: 0px; width: 100%;">
+    <button class="button button-block button-energized" style="margin-bottom: 0;">
+      <i class="icon ion-email"></i>
+      Send mail
+    </button>
+  </div>
+</ion-view>
