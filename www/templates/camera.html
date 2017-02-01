@@ -1,4 +1,7 @@
 <ion-view view-title="Camera">
+  <ion-nav-buttons side="left">
+    <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+  </ion-nav-buttons>
   <ion-content>
     <img id="camera-preview" ng-if="upload.picture" src="data:image/jpeg;base64,{{ upload.picture }}" style ="margin-top: 43px; width: 100%;">
   <!--   <img id="camera-preview" src="http://i.ytimg.com/vi/T4bQA3PXov4/maxresdefault.jpg" style ="margin-top: 43px;"> -->

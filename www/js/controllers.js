@@ -1,8 +1,8 @@
 angular.module('starter.controllers', ['starter.services'])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout, $ionicNavBarDelegate) {
-  var isIOS = ionic.Platform.isIOS();
-  $ionicNavBarDelegate.showBackButton(isIOS);
+//   var isIOS = ionic.Platform.isIOS();
+//   $ionicNavBarDelegate.showBackButton(true);
 
   // Form data for the login modal
   $scope.loginData = {};
@@ -48,6 +48,10 @@ angular.module('starter.controllers', ['starter.services'])
 
 .controller('ContactCtrl', function($scope, $stateParams, Contact) {
   $scope.contact = Contact.get($stateParams['contactId']);
+
+  $scope.$on('$ionicView.beforeEnter', function (event, viewData) {
+    viewData.enableBack = true;
+  });
 })
 
 .controller('CameraCtrl', function($scope) {
