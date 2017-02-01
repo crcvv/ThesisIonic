@@ -1,19 +1,21 @@
 <ion-view view-title="Contact">
   <ion-content>
     <div>
-      <img src="img/ionic.png" style ="width: 100%;">
-      <h3 class="padding-right">{{contact.name}}</h3>
+      <img src="img/{{contact.img}}" style ="width: 100%;">
+      <h3 class="padding-left">{{contact.name}}</h3>
     </div>
 
     <ul class="list">
-      <li class="item item-toggle">
+      <li class="item">
+        Status
+        <span class="item-note">
+          {{contact.status}}
+        </span>
+      </li>
+
+      <li class="item item-icon-right">
+        <i class="icon ion-ios-bell"></i>
         Mute
-        <label class="toggle toggle-energized">
-          <input type="checkbox">
-          <div class="track">
-            <div class="handle"></div>
-          </div>
-        </label>
       </li>
 
       <li class="item item-icon-right">
@@ -21,10 +23,11 @@
         Phone number
       </li>
 
-      <li href="#" class="item item-icon-right">
+      <li class="item item-icon-right">
         <i class="icon ion-wifi"></i>
         WiFi password
       </li>
+
     </ul>
   </ion-content>
 </ion-view>

@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+angular.module('starter.controllers', ['starter.services'])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
@@ -47,19 +47,12 @@ angular.module('starter.controllers', [])
   }
 })
 
-.controller('ContactslistCtrl', function($scope) {
-  $scope.contacts = [
-    { name: 'Abraham Lincoln', status: "I'm busy", id: 1, img: "venkman.jpg" },
-    { name: 'Ronald Reagan', status: "Away", id: 2, img: "spengler.jpg" },
-    { name: 'John F. Kennedy', status: "At the cinema", id: 3, img: "stantz.jpg" },
-    { name: 'Bill Clinton', status: "Available", id: 4, img: "winston.jpg" }
-  ];
+.controller('ContactslistCtrl', function($scope, Contact) {
+  $scope.contacts = Contact.all();
 })
 
-.controller('ContactCtrl', function($scope, $stateParams) {
-  $scope.contact = {
-    name: 'Abraham Lincoln', id: 1
-  };
+.controller('ContactCtrl', function($scope, $stateParams, Contact) {
+  $scope.contact = Contact.get($stateParams['contactId']);
 })
 
 .controller('CameraCtrl', function($scope) {
