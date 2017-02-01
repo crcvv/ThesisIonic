@@ -2,7 +2,7 @@
   <ion-content>
     <ion-list>
       <ion-item ng-repeat="contact in contacts" href="#/app/contacts/{{contact.id}}" class="item item-avatar">
-        <img src="img/ionic.png">
+        <img src="img/{{contact.img}}">
         <h2>{{contact.name}}</h2>
         <p>{{contact.status}}</p>
       </ion-item>

@@ -1,13 +1,8 @@
-angular.module('starter.controllers', [])
+angular.module('starter.controllers', ['starter.services'])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
-
-  // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  //$scope.$on('$ionicView.enter', function(e) {
-  //});
+.controller('AppCtrl', function($scope, $ionicModal, $timeout, $ionicNavBarDelegate) {
+  var isIOS = ionic.Platform.isIOS();
+  $ionicNavBarDelegate.showBackButton(isIOS);
 
   // Form data for the login modal
   $scope.loginData = {};
@@ -47,19 +42,12 @@ angular.module('starter.controllers', [])
   }
 })
 
-.controller('ContactslistCtrl', function($scope) {
-  $scope.contacts = [
-    { name: 'Abraham Lincoln', status: "I'm busy", id: 1 },
-    { name: 'Ronald Reagan', status: "Away", id: 2 },
-    { name: 'John F. Kennedy', status: "At the cinema", id: 3 },
-    { name: 'Bill Clinton', status: "Available", id: 4 }
-  ];
+.controller('ContactslistCtrl', function($scope, Contact) {
+  $scope.contacts = Contact.all();
 })
 
-.controller('ContactCtrl', function($scope, $stateParams) {
-  $scope.contact = {
-    name: 'Abraham Lincoln', id: 1
-  };
+.controller('ContactCtrl', function($scope, $stateParams, Contact) {
+  $scope.contact = Contact.get($stateParams['contactId']);
 })
 
 .controller('CameraCtrl', function($scope) {
@@ -92,4 +80,13 @@ angular.module('starter.controllers', [])
   $scope.selectPicture = function() {
     getPicture(Camera.PictureSourceType.PHOTOLIBRARY);
   };
+})
+
+.controller('MailCtrl', function($scope) {
+  $scope.emails = [
+    { name: 'Totoro', preview: "Movie night tonight?", img: "totoro.png" },
+    { name: 'Bill Doe', preview: "Book you recommended", img: "license-to-ill.jpg" },
+    { name: 'Ghostbusters Slimer', preview: "Who ya gonna call?", img: "slimer.jpg" },
+    { name: 'Totoro', preview: "Movie night tonight?", img: "totoro.png" }
+  ];
 });

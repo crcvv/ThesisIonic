@@ -83,6 +83,16 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         templateUrl: 'templates/about.html'
       }
     }
+  })
+
+  .state('app.mail', {
+    url: '/mail',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/mail.html',
+        controller: 'MailCtrl'
+      }
+    }
   });
 
   // if none of the above states are matched, use this as the fallback
